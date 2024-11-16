@@ -170,17 +170,8 @@ ngx_http_access_control(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ngx_http_compile_complex_value_t    ccv;
     ngx_http_complex_value_t           *cv;
 
-    if (alcf->rules == NGX_CONF_UNSET_PTR) {
-        alcf->rules = ngx_array_create(cf->pool, 4,
-            sizeof(ngx_http_access_control_rule_t));
-        if (alcf->rules == NULL) {
-            return NGX_CONF_ERROR;
-        }
-    }
-
     value = cf->args->elts;
 
-    // 确保参数数量至少为3
     if (cf->args->nelts < 3) {
         ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
             "invalid number of arguments in \"access\" directive");
