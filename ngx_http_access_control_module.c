@@ -150,7 +150,7 @@ ngx_http_access_control_merge_loc_conf(ngx_conf_t *cf,
     ngx_http_access_control_loc_conf_t *prev = parent;
     ngx_http_access_control_loc_conf_t *conf = child;
 
-    if (conf->rules == NGX_NULL) {
+    if (conf->rules == NULL) {
         conf->rules = prev->rules;
     }
 
