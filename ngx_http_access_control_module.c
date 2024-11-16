@@ -90,13 +90,13 @@ static ngx_int_t
 ngx_http_access_control_handler(ngx_http_request_t *r)
 {
     ngx_http_access_control_loc_conf_t *alcf;
-    ngx_uint_t                          i, j;
+    ngx_uint_t                          i;
     ngx_http_access_control_rule_t     *rules;
     ngx_str_t                           result;
 
     alcf = ngx_http_get_module_loc_conf(r, ngx_http_access_control_module);
 
-    if (!alcf->rule) {
+    if (!alcf->rules) {
         return NGX_DECLINED;
     }
 
@@ -109,7 +109,7 @@ ngx_http_access_control_handler(ngx_http_request_t *r)
             return NGX_HTTP_INTERNAL_SERVER_ERROR;
         }
 
-        if (result.len == 0 || result.len == 1 && result.data[0] == '0') {
+        if (result.len == 0 || (result.len == 1 && result.data[0] == '0')) {
             continue;
         }
 
