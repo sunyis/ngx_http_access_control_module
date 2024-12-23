@@ -66,6 +66,21 @@ The access directive defines an access control rule based on a variable. The var
 allow: Allows access if the condition is met. The allowed request will no longer match the remaining access control rules.
 deny: Denies access if the condition is met.
 
+
+## access_rules_inherit
+
+**Syntax:** *access_rules_inherit off | before | after;*
+
+**Default:** *access_rules_inherit off;*
+
+**Context:** *http, server, location*
+
+determines whether and how access control rules from previous level are applied in the current configuration context. It accepts three values:
+
+off: do not inherit any access rules from previous level, unless no access directive is defined at the current level.
+before: apply access rules of previous level before the access rules of current level.
+after: apply access rules of previous level after the access rules of current level.
+
 ## access_deny_status
 
 **Syntax:** *access_deny_status code;*
