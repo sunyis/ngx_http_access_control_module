@@ -171,7 +171,7 @@ ngx_http_access_control_merge_loc_conf(ngx_conf_t *cf,
     ngx_uint_t                          i;
 
     ngx_conf_merge_uint_value(conf->inherit_mode, prev->inherit_mode,
-                              NGX_HTTP_ACCESS_INHERIT_UNSET);
+                              NGX_HTTP_ACCESS_INHERIT_OFF);
 
     ngx_conf_merge_uint_value(conf->status_code, prev->status_code,
                               NGX_HTTP_FORBIDDEN);
