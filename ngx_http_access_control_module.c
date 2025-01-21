@@ -8,7 +8,8 @@
 #include <ngx_core.h>
 #include <ngx_http.h>
 
-
+#ifndef NGX_HTTP_ACCESS_CONTROL_MODULE_C
+#define NGX_HTTP_ACCESS_CONTROL_MODULE_C
 #define NGX_HTTP_ACCESS_CONTROL_RULE_ALLOW   0
 #define NGX_HTTP_ACCESS_CONTROL_RULE_DENY    1
 
